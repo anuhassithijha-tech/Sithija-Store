@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SITHIJA MD - Premium Bot Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#050505;color:#fff;overflow-x:hidden;cursor:none;}
+
+/* LOADING SCREEN */
+#loader{
+position:fixed;
+inset:0;
+background:#050505;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+}
+#loader h1{
+color:#00ffcc;
+font-size:50px;
+letter-spacing:3px;
+animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+0%{text-shadow:0 0 10px #00ffcc;}
+50%{text-shadow:0 0 30px #00ffff;}
+100%{text-shadow:0 0 10px #00ffcc;}
+}
+
+/* CURSOR */
+.cursor{
+width:20px;height:20px;border:2px solid #00ffcc;border-radius:50%;
+position:fixed;pointer-events:none;z-index:99999;
+box-shadow:0 0 20px #00ffcc;
+}
+
+/* NAV */
+nav{
+position:fixed;top:0;width:100%;
+display:flex;justify-content:space-between;
+padding:15px 50px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+z-index:1000;
+}
+nav h2{color:#00ffcc;}
+nav ul{display:flex;gap:20px;list-style:none;}
+nav li{cursor:pointer;padding:8px 15px;border-radius:20px;transition:.3s;}
+nav li:hover{background:#00ffcc;color:#000;}
+
+/* TABS */
+.tab{display:none;padding:120px 8%;}
+.tab.active{display:block;}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+.hero h1{font-size:80px;color:#00ffcc;}
+.hero h3{color:#00ffff;margin-top:10px;}
+.hero p{max-width:700px;margin:20px auto;font-size:18px;color:#ccc;}
+
+/* BUTTON */
+.btn{
+padding:14px 30px;border:none;border-radius:40px;
+background:linear-gradient(90deg,#00ffcc,#00ffff);
+cursor:pointer;font-weight:bold;
+margin-top:10px;
+}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.card{
+background:rgba(255,255,255,.08);
+padding:20px;border-radius:20px;
+}
+
+/* PRICE */
+.price{text-align:center;}
+.price h2{font-size:60px;color:#00ffcc;}
+
+/* CONTACT */
+.socials a{
+padding:15px 25px;
+background:rgba(255,255,255,.1);
+border-radius:30px;
+color:#fff;
+text-decoration:none;
+}
+
+/* HOW TO ORDER */
+.steps{
+max-width:700px;
+margin:30px auto;
+background:rgba(255,255,255,.05);
+padding:20px;
+border-radius:20px;
+}
+.steps li{margin:10px 0;color:#ccc;}
+
+/* ADMIN */
+#adminPanel{
+display:none;position:fixed;inset:0;background:#050505;z-index:9999;padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+<h1>SITHIJA MD</h1>
+<p style="color:#ccc;margin-top:10px;">Loading Premium Store...</p>
+</div>
+
+<div class="cursor"></div>
+
+<!-- NAV -->
+<nav>
+<h2>SITHIJA MD</h2>
+<ul>
+<li onclick="openTab('home')">Home</li>
+<li onclick="openTab('features')">Features</li>
+<li onclick="openTab('pricing')">Pricing</li>
+<li onclick="openTab('contact')">Contact</li>
+</ul>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="tab active">
+<section class="hero">
+<div>
+<h1>SITHIJA MD</h1>
+<h3>Premium WhatsApp Bot Store</h3>
+
+<p>
+🔥 Powerful WhatsApp Bots with AI automation, auto reply, media tools, download tools & premium features.<br>
+💡 Perfect for business automation, entertainment & marketing.
+</p>
+
+<button class="btn" onclick="openTab('pricing')">View Packages</button>
+
+<!-- HOW TO ORDER -->
+<div class="steps">
+<h3 style="color:#00ffcc;">🛒 How to Order</h3>
+<ul>
+<li>1. Go to Pricing section</li>
+<li>2. Click “BUY NOW” button</li>
+<li>3. You will be redirected to WhatsApp</li>
+<li>4. Send your name + payment confirmation</li>
+<li>5. Admin will activate your bot access</li>
+</ul>
+</div>
+
+</div>
+</section>
+</div>
+
+<!-- FEATURES -->
+<div id="features" class="tab">
+<h2 style="text-align:center;color:#00ffcc;font-size:40px;">Bot Features</h2>
+
+<div class="grid" style="margin-top:40px;">
+<div class="card">Multi Device</div>
+<div class="card">AI Chat</div>
+<div class="card">Auto Status</div>
+<div class="card">Auto React</div>
+<div class="card">YouTube Tool</div>
+<div class="card">TikTok Tool</div>
+<div class="card">Movie Download</div>
+<div class="card">Forward Tool</div>
+</div>
+</div>
+
+<!-- PRICING -->
+<div id="pricing" class="tab">
+<h2 style="text-align:center;color:#00ffcc;font-size:40px;">Premium Package</h2>
+
+<div class="card price" style="max-width:400px;margin:50px auto;">
+<h2>Rs.130</h2>
+<p>1 Month Access</p><br>
+<p>✔ Full Access</p>
+<p>✔ Premium Commands</p>
+<p>✔ Free Updates</p>
+
+<br>
+<button class="btn" onclick="buyNow()">BUY NOW</button>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="tab">
+<h2 style="text-align:center;color:#00ffcc;font-size:40px;">Contact</h2>
+
+<div style="text-align:center;margin-top:40px;">
+<a class="btn" href="https://wa.me/94742838813">WhatsApp Admin</a>
+</div>
+</div>
+
+<script>
+
+/* loader */
+window.onload=function(){
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},2000);
+};
+
+function openTab(tabName){
+let tabs=document.querySelectorAll(".tab");
+tabs.forEach(t=>t.classList.remove("active"));
+document.getElementById(tabName).classList.add("active");
+}
+
+function buyNow(){
+let msg=`*SITHIJA MD ORDER* Package: Premium Price: Rs.130 I want to buy this bot.`;
+window.open("https://wa.me/94742838813?text="+encodeURIComponent(msg));
+}
+
+/* cursor */
+document.addEventListener("mousemove",(e)=>{
+document.querySelector(".cursor").style.left=e.clientX+"px";
+document.querySelector(".cursor").style.top=e.clientY+"px";
+});
+</script>
+
+</body>
+</html>
